@@ -4,30 +4,27 @@ Bundler.require
 require_relative 'lib/game'
 require_relative 'lib/player'
 
-puts "------------------------------------------------
-|Bienvenue sur 'ILS VEULENT TOUS MA POO' !      |
-|Le but du jeu est d'être le dernier survivant !|
--------------------------------------------------"
+#Home
+puts "------------------------------------------------"
+puts "|Bienvenue sur 'ILS VEULENT TOUS MA POO 2.0' !     |"
+puts "|Le but du jeu est d'être le dernier survivant !|"
+puts "-------------------------------------------------"
 
-puts " "
-
-puts "Quel est ton prénom?"
+#Init_player
+puts "Choisi un nom de joueur :"
 print ">"
-name = gets.chomp
+username = gets.chomp
 
-my_game = Game.new(name)
+#Init_game
+my_game = Game.new("username")
 
-while my_game.is_still_ongoing? == true 
+#Game
+while my_game.is_still_going !== true
   my_game.show_players
-  gets.chomp
-  my_game.new_players_in_sight
-  gets.chomp
   my_game.menu
-  choice = gets.chomp
-  my_game.menu_choice(choice)
-  puts my_game.kill_player
-  gets.chomp
+  my_game.menu_choice
   my_game.enemies_attack
 end
 
+#End game
 my_game.end
