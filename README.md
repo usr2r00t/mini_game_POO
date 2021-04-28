@@ -1,3 +1,1 @@
-THP - Projet : Mini jeu - il veulent tous ta POO
-
-Petit jeu de combat utilisant Ruby
+This is just a mini game coded in Ruby - "They all want my POO"
