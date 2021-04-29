@@ -5,22 +5,22 @@ require_relative 'lib/game'
 require_relative 'lib/player'
 
 puts "------------------------------------------------"
-puts "|Bienvenue sur 'ILS VEULENT TOUS MA POO' !      |"
-puts "|Le but du jeu est d'être le dernier survivant !|"
+puts "|Welcome on 'They all want my POO' !|"
+puts "|The object of the game is to be the last survivor !|"
 puts "-------------------------------------------------"
 
 #Player_init
-puts "Choisi un nom de joueur :"
+puts "Choose a player name:"
 print ">"
 username = gets.chomp
 human_player = HumanPlayer.new(username)
 
 #Enemy_init
 enemies = []
-pnj_1 = Player.new("Josiane")
+pnj_1 = Player.new("Foo")
 enemies.push(pnj_1)
-pnj_2 = Player.new("José")
-enemies.push(pnj_2)
+pnj_2 = Player.new("Bar")
+enemies.push(pnj_2)²
 
 #Fight
 while human_player.life_points > 0 && (pnj_1.life_points > 0 || pnj_2.life_points > 0)
@@ -31,10 +31,10 @@ while human_player.life_points > 0 && (pnj_1.life_points > 0 || pnj_2.life_point
   puts " "
   puts "-------------------------------------------------"
 
-  puts "Quelle action veux-tu effectuer ?"
-  puts "a - chercher une meilleure arme"
-  puts "s - chercher à se soigner" 
-  puts "Ou bien attaquer un joueur en vue :"
+  puts "What action do you want to perform ?"
+  puts "a - Look for a better weapon"
+  puts "s - Seek treatment" 
+  puts "Attack a plyer:"
   puts "0 - #{pnj_1.show_state}"
   puts "1 - #{pnj_2.show_state}"
   print ">"
@@ -51,15 +51,17 @@ while human_player.life_points > 0 && (pnj_1.life_points > 0 || pnj_2.life_point
   else
     human_player.attacks(pnj_2)
   end
+  
   #Fight, w/PNJ
-  puts "Les autres joueurs attaquent !"
+  puts "Other players attack!"
   enemies.each do |enemy|
     enemy.attacks(human_player) if enemy.life_points > 0
   end
 end
+
 #End_game
 if human_player.life_points > 0
-  puts "BRAVO ! TU AS GAGNE !"
+  puts ">Nice ! You won the game !"
 else 
-  puts "Loser ! Tu as perdu !"
+  puts "Loser ! You loose !"
 end
