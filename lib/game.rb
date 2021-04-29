@@ -47,9 +47,9 @@ class Game
 
   def end 
     if human_player.life_points > 0
-      puts "BRAVO ! TU AS GAGNE !"
+      puts "BRAVO ! Tu as gagné !"
     else 
-      puts "Loser ! Tu as perdu !"
+      puts "Looser ! Tu as perdu !"
     end
   end 
 end
